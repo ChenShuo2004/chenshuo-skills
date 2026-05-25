@@ -1,155 +1,120 @@
-# ChenShuo Skills 仓库规划
+# ChenShuo Skills Roadmap
 
-## 需求理解
+## 当前状态
 
-目标是把当前本机已经沉淀的个人 skills，整理成一个可维护、可安装、可分享的 `ChenShuo Skills` GitHub 仓库。
+ChenShuo Skills 已发布为公开 GitHub 仓库：
 
-首版已完成源码迁移、仓库配图、远程仓库创建和推送。
+[ChenShuo2004/chenshuo-skills](https://github.com/ChenShuo2004/chenshuo-skills)
 
-## 参考设计
+首版包含 12 个 skill，按 Goal Mode 组织：
 
-参考仓库：[KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills)
-
-它的核心设计可以概括为：
-
-1. 根目录就是可安装 skill 目录，安装 URL 简单直接。
-2. README 用人话解释每个 skill 适合什么、不适合什么、会做什么。
-3. skill 和 prompt 分开，避免把可安装工作流和一次性提示词混在一起。
-4. 仓库介绍强调“自己每天在用，跑通后再开源”，可信度来自真实使用。
-5. 单个 skill 内部保持自包含，复杂方法论放进 `references/`，可执行工具放进 `scripts/`。
-
-ChenShuo Skills 可以沿用这个骨架，但表达上更突出你的个人工作流：
-
-- 自动剪辑工作流
-- 理想车主信息图内容生产
-- Open Design / Ralph 这类可复用执行底座
-- 后续再补 prompts 或案例
+- 自动剪辑
+- 内容写作
+- 理想车主信息图
+- 前端产品设计
+- Open Design 设计产物
+- Ralph PRD 执行
+- 代码质量和交付收尾
 
 ## 仓库定位
 
-一句话定位：
+ChenShuo Skills 是陈硕在真实项目里沉淀的 AI Agent 工作流集合。
 
-> ChenShuo Skills 是陈硕在真实项目里沉淀的 AI Agent 工作流集合，覆盖自动剪辑、内容运营信息图、设计产出和 PRD 执行闭环。
+它的核心不是“提示词收藏”，而是“目标驱动的工作流入口”。每个 skill 都必须回答：
 
-对外可以更简单：
+1. 目标是什么？
+2. 输入是什么？
+3. 输出是什么？
+4. 核心流程是什么？
+5. 怎么验证完成？
 
-> 我自己每天在项目里用的一些 AI Skills，跑通了就整理出来。
+## 首版 Skill
 
-## 推荐仓库名
+### 自动剪辑组
 
-推荐：`chenshuo-skills`
+- `auto-cutting`
+- `auto-cutting-prd`
+- `auto-cutting-ralph`
+- `auto-render-video`
 
-原因：
+目标：把自动剪辑从“想法”推进到“需求、计划、执行、验证”的闭环。
 
-- URL 清晰：`github.com/ChenShuo2004/chenshuo-skills`
-- 全小写、短横线，适合作为安装 URL。
-- 和 `Khazix Skills` 的命名方式一致，但不会混淆品牌归属。
+### 内容与信息图组
 
-备选：
+- `happy-writer`
+- `li-auto-infographic-suite`
+- `li-auto-minimal-infographic`
+- `li-info`
 
-- `ChenShuo-Skills`：展示名更好看，但 URL 大小写不稳定。
-- `cs-skills`：短，但不够直观。
-- `agent-skills`：太泛，缺少个人识别度。
+目标：把真实项目素材转成可发布内容，并支持理想车主信息图生产。
 
-## 目录设计
+### 设计、工程与执行组
 
-推荐首版：
+- `frontend-design`
+- `open-design`
+- `ralph-runner`
+- `clean-code`
+
+目标：支持前端体验设计、设计产物生成、PRD 执行和工程收尾。
+
+## 发布标准
+
+每个 skill 发布前必须满足：
+
+1. `SKILL.md` 有合法 frontmatter。
+2. `description` 能明确触发场景。
+3. `agents/openai.yaml` 存在，且默认 prompt 包含 `$skill-name`。
+4. 不包含本机绝对路径、账号、访问密钥、私有资料或不可公开链接。
+5. 复杂规则放到 `references/`，不要堆在 `SKILL.md`。
+6. 能说明目标、输入、输出、流程和验证方式。
+
+## 下一阶段
+
+### P0：安装验证
+
+用新会话逐个测试关键安装链接：
 
 ```text
-chenshuo-skills/
-  README.md
-  LICENSE
-  docs/
-    repository-plan.md
-    skill-inventory.md
-  prompts/
-  auto-cutting/
-  auto-cutting-prd/
-  auto-cutting-ralph/
-  auto-render-video/
-  clean-code/
-  frontend-design/
-  happy-writer/
-  li-auto-infographic-suite/
-  li-auto-minimal-infographic/
-  li-info/
-  open-design/
-  ralph-runner/
+帮我安装这个 skill：https://github.com/ChenShuo2004/chenshuo-skills/tree/main/happy-writer
 ```
 
-说明：
+重点验证：
 
-- skill 目录放在根目录，方便用户直接安装。
-- `docs/` 只放仓库级规划、盘点、维护说明，不放到具体 skill 内部。
-- `prompts/` 暂时保留空位，等有稳定 prompt 再放。
-- 暂不放 `third-party/`，避免首版范围变复杂。
+- 能否安装。
+- 是否按描述触发。
+- `references/` 是否能被按需读取。
+- `agents/openai.yaml` 是否展示正常。
 
-## 首版迁移清单
+### P1：真实任务回归
 
-### P0：必须迁移
+用真实任务验证这些核心 skill：
 
-1. `auto-cutting`
-2. `auto-cutting-prd`
-3. `auto-cutting-ralph`
-4. `auto-render-video`
-5. `clean-code`
-6. `happy-writer`
-7. `li-auto-infographic-suite`
-8. `li-auto-minimal-infographic`
-9. `li-info`
-10. `frontend-design`
-11. `open-design`
-12. `ralph-runner`
+- `happy-writer`：用一份项目素材生成文章。
+- `clean-code`：对一个真实代码改动做收尾。
+- `auto-render-video`：用 render-plan 生成并验证 MP4。
+- `frontend-design`：对一个本地 UI 做实现和浏览器检查。
 
-### P1：待确认后迁移
+### P2：补案例
 
-暂无。`frontend-design`、`clean-code`、`happy-writer` 已进入首版。
+后续可以新增 `examples/`，但不要在首版塞太多样例。
 
-### 暂不迁移
+建议案例：
 
-1. `khazix-writer`
-2. `neat-freak`
-3. `doc`
-4. `pdf`
-5. `playwright`
+- `examples/happy-writer-project-post.md`
+- `examples/clean-code-handoff.md`
+- `examples/auto-render-video-plan.json`
+- `examples/frontend-design-review.md`
 
-原因：
+### P3：发布体验优化
 
-- `khazix-writer` 和 `neat-freak` 是上游参考或第三方强关联 skill。
-- 它们已经分别转化为原创 `happy-writer` 和 `clean-code`，原始版本不直接混入首版。
-- `doc`、`pdf`、`playwright` 是通用依赖，不是 ChenShuo 个人工作流本体。
+- 给 README 增加更短的安装区。
+- 给每个 skill 增加一句“适合 / 不适合”。
+- 根据真实安装反馈调整触发语。
 
-## 单个 Skill 的发布标准
+## 风险与待确认
 
-每个 skill 迁移前检查：
-
-1. `SKILL.md` 有合法 frontmatter：`name` 和 `description`。
-2. `description` 触发语明确，不要只写“这个 skill 用于某某任务”。
-3. `SKILL.md` 不超过必要长度，详细方法论放 `references/`。
-4. `agents/openai.yaml` 存在，且 `display_name`、`short_description`、`default_prompt` 与 `SKILL.md` 一致。
-5. `references/` 中没有隐私信息、账号信息、客户信息、不可公开链接。
-6. `scripts/` 可在干净环境中运行，不能写死本机绝对路径。
-7. `assets/` 只放真正需要随 skill 分发的模板或素材。
-8. 安装 URL 指向该 skill 目录时，用户能理解怎么触发。
-
-## GitHub 发布流程
-
-建议流程：
-
-1. 已在本地当前目录初始化仓库。
-2. 已复制 P0 skill 目录。
-3. 已做内容审查：隐私、路径、许可证、触发语、README 描述。
-4. 已创建远程仓库 `ChenShuo2004/chenshuo-skills`。
-5. 已推送到 `main`。
-6. 已通过 GitHub CLI 检查 README 可读取。
-7. 待做：用一个新 Codex/Claude 会话测试安装 URL 和触发语。
-
-## 风险和待确认
-
-1. 仓库公开还是私有：公开便于分享，私有更安全。
-2. `frontend-design` 后续是否需要补充示例：目前已经可用，但还没有绑定具体案例或视觉样张。
-3. `clean-code` 和 `happy-writer` 后续需要用真实任务验证触发语和输出边界。
-4. 理想信息图相关内容是否可公开：需要检查 references 是否包含敏感运营资料。
-5. 自动剪辑脚本是否可开源：需要检查脚本依赖、素材路径、模板内容。
-6. 许可证：建议 MIT，但第三方内容不能混在原创 MIT 范围里。
-7. 是否需要英文 README：首版可以先不做，等结构稳定后再补。
+1. `li-auto-*` 相关 skill 依赖用户本地素材库，公开仓库只保留流程，不包含私有素材。
+2. `open-design` 依赖用户本地 Open Design 项目，路径必须由使用者提供或现场解析。
+3. `ralph-runner` 依赖本地 Ralph/Codex 环境，默认只做 dry-run 和 no-commit。
+4. `auto-render-video` 依赖 FFmpeg/FFprobe 或目标项目已有渲染链路。
+5. `happy-writer` 和 `clean-code` 需要真实任务继续打磨触发边界。

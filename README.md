@@ -2,103 +2,44 @@
 
 ![ChenShuo Skills cover](assets/chenshuo-skills-cover.png)
 
-我自己沉淀的一组 AI Agent Skills 和工作流说明。
+ChenShuo Skills 是我在真实项目里沉淀的一组 AI Agent 工作流。
 
-这个仓库的目标不是把所有提示词都堆在一起，而是把已经在真实项目里跑通过、能复用、能交付结果的工作流整理成可安装、可维护的 skill。
+这个仓库不追求把提示词堆满，而是把能反复使用、能交付结果、能验证质量的工作流整理成可安装的 skill。每个 skill 都围绕一个明确目标设计：先理解业务，再执行动作，最后给出可检查的结果。
 
-当前状态：首版 skill 已发布到 GitHub。
+当前状态：首版 12 个 skill 已发布。
 
-设计参考：[KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills)。参考点主要是：根目录直接放可安装 skill、README 先讲清楚每个 skill 解决什么问题、安装方式足够简单、每个 skill 保持自包含。
+## Goal Mode
 
-## 首版范围
+Goal Mode 的用法很简单：先说目标，再选 skill。
 
-### 核心 Skills
-
-| Skill | 中文名 | 用途 | 首版定位 |
-| --- | --- | --- | --- |
-| `auto-cutting` | 自动剪辑 | 规划、生成、渲染、验证自动剪辑流程，覆盖剪映/Jianying/CapCut 草稿、素材扫描、时间线、字幕、BGM、导出校验 | 核心 |
-| `auto-cutting-prd` | 自动剪辑 PRD | 把自动剪辑想法整理成需求文档、剪辑方案或 Ralph PRD | 入口/轻量版 |
-| `auto-cutting-ralph` | 自动剪辑 Ralph | 从需求到 Ralph PRD、dry-run、生成计划、验证反馈的完整闭环 | 工作流闭环 |
-| `auto-render-video` | 自动成片 | 根据素材和剪辑计划直接裁剪、拼接、字幕、混音、导出 MP4 | 执行型 |
-| `clean-code` | 代码洁癖 | 按需求、业务流程、文档同步和验证结果清理代码与交付状态 | 工程质量 |
-| `happy-writer` | 快乐写作 | 把真实项目素材写成陈硕风格的温暖、实用、好奇心驱动内容 | 内容创作 |
-| `li-auto-infographic-suite` | 理想信息图套图 | 从账号链接、日常场景、分享码和 Prompt Code 生成理想车主信息图套图 | 核心 |
-| `li-auto-minimal-infographic` | 理想极简信息图 | 面向理想车主极简分享码信息图，含提问、生成、质检与归档 | 核心 |
-| `li-info` | 理想信息图短命令 | 用 `$li-info` 快速触发理想信息图工作流 | 入口别名 |
-| `frontend-design` | 前端产品设计 | 指导 Codex 设计、实现、评审和验证用户可见的前端界面 | 设计基础设施 |
-| `open-design` | Open Design | 使用本地 Open Design 项目做 artifact-first 设计工作流 | 设计基础设施 |
-| `ralph-runner` | Ralph Runner | 把 Markdown 需求转成 Ralph PRD，并运行安全的 Ralph/Codex 构建流程 | 执行基础设施 |
-
-### 参考来源与通用依赖
-
-| Skill | 当前判断 | 处理方式 |
-| --- | --- | --- |
-| `khazix-writer` | 已参考其写作工作流结构，转化为原创 `happy-writer` | 原始版本不直接迁移 |
-| `neat-freak` | 已参考其收尾审查结构，转化为原创 `clean-code` | 原始版本不直接迁移 |
-| `doc` / `pdf` / `playwright` | 通用能力包 | 更适合写在依赖说明中，不纳入个人原创目录 |
-
-## 建议仓库结构
-
-为了让安装 URL 简单，首版建议沿用卡兹克仓库的根目录 skill 结构：
+不要先问“我该用哪个提示词”，而是先问：
 
 ```text
-chenshuo-skills/
-  README.md
-  LICENSE
-  assets/
-    chenshuo-skills-cover.png
-  docs/
-    repository-plan.md
-    skill-inventory.md
-  prompts/
-  auto-cutting/
-    SKILL.md
-    agents/openai.yaml
-    assets/
-    references/
-    scripts/
-  auto-cutting-prd/
-    SKILL.md
-    agents/openai.yaml
-  auto-cutting-ralph/
-    SKILL.md
-    agents/openai.yaml
-  auto-render-video/
-    SKILL.md
-    agents/openai.yaml
-  clean-code/
-    SKILL.md
-    agents/openai.yaml
-    references/
-  happy-writer/
-    SKILL.md
-    agents/openai.yaml
-    references/
-  li-auto-infographic-suite/
-    SKILL.md
-    agents/openai.yaml
-    references/
-  li-auto-minimal-infographic/
-    SKILL.md
-    agents/openai.yaml
-    references/
-  li-info/
-    SKILL.md
-    agents/openai.yaml
-  frontend-design/
-    SKILL.md
-    agents/openai.yaml
-  open-design/
-    SKILL.md
-    agents/openai.yaml
-    references/
-  ralph-runner/
-    SKILL.md
-    agents/openai.yaml
-    references/
+我现在想达成什么结果？
+输入是什么？
+输出应该长什么样？
+怎么验证它真的完成了？
 ```
 
-后续安装方式预计是：
+然后按目标选择入口：
+
+| Goal | 使用入口 | 适合场景 | 产出 |
+| --- | --- | --- | --- |
+| 把自动剪辑想法变成可执行方案 | `$auto-cutting-prd` | 有视频想法，但还没有需求文档、剪辑方案或 Ralph PRD | Markdown 需求、剪辑计划、PRD 草案 |
+| 直接剪辑并导出视频 | `$auto-render-video` | 已有素材、脚本、字幕或 render-plan，希望直接生成 MP4 | 成片、渲染计划、验证报告 |
+| 跑完整自动剪辑工程闭环 | `$auto-cutting-ralph` | 想把自动剪辑需求交给 Ralph/Codex dry-run 执行 | Ralph PRD、dry-run 结果、日志路径 |
+| 做理想车主信息图 | `$li-info` | 想快速生成理想车主信息图、分享码图、账号运营图 | 页面文案、生成提示词、质检记录 |
+| 做完整理想信息图批量生产 | `$li-auto-infographic-suite` | 多账号、多套图、资源轮转、归档、发布信息 | 批量套图工作流与交付文件 |
+| 做极简分享码信息图 | `$li-auto-minimal-infographic` | 需要更轻、更清晰的分享码信息图 | 极简信息图方案与页面提示 |
+| 写文章或改稿 | `$happy-writer` | 项目复盘、工具体验、公众号长文、内容改写 | 陈硕风格文章、提纲、角度建议 |
+| 清理代码和交付状态 | `$clean-code` | 代码重构、review、文档同步、交付收尾 | 修复建议、代码整理、验证结果 |
+| 设计或评审前端体验 | `$frontend-design` | Web app、后台、仪表盘、工具界面、落地页 | 前端实现建议、UI 约束、验证清单 |
+| 使用 Open Design 做设计产物 | `$open-design` | HTML 原型、Dashboard、移动端、幻灯片、设计系统 | Open Design 产物路径与执行步骤 |
+| 把 Markdown 需求跑成 Ralph PRD | `$ralph-runner` | 已有需求文档，想跑安全 dry-run 构建 | PRD JSON、overview、dry-run 输出 |
+
+## 快速安装
+
+在支持安装 GitHub skill 的 AI 编程工具里使用：
 
 ```text
 帮我安装这个 skill：https://github.com/ChenShuo2004/chenshuo-skills/tree/main/<skill-name>
@@ -107,17 +48,77 @@ chenshuo-skills/
 例如：
 
 ```text
-帮我安装这个 skill：https://github.com/ChenShuo2004/chenshuo-skills/tree/main/auto-cutting
+帮我安装这个 skill：https://github.com/ChenShuo2004/chenshuo-skills/tree/main/happy-writer
 ```
 
-## 迁移原则
+```text
+帮我安装这个 skill：https://github.com/ChenShuo2004/chenshuo-skills/tree/main/clean-code
+```
 
-1. 只迁移已经在真实项目里跑通过的 skill。
-2. 每个 skill 保持自包含，必要资源放在自己的 `references/`、`scripts/`、`assets/` 下。
-3. `SKILL.md` 保持短、准、可触发；详细方法论放到 `references/`。
-4. `agents/openai.yaml` 必须和 `SKILL.md` 保持一致。
-5. 第三方或上游 skill 不混入原创清单，除非明确保留来源、许可证和修改说明。
-6. 首版先保证安装、触发、验证路径通顺，不做过度包装。
+## Skill Map
+
+### 自动剪辑
+
+- `auto-cutting`：自动剪辑主入口，负责规划、生成、渲染、验证。
+- `auto-cutting-prd`：把想法整理成需求文档、剪辑方案或 Ralph PRD。
+- `auto-cutting-ralph`：把自动剪辑需求拆成 Ralph PRD 并跑 dry-run。
+- `auto-render-video`：根据素材和 render-plan 直接剪辑、渲染、验证 MP4。
+
+### 内容与信息图
+
+- `happy-writer`：把真实项目素材写成温暖、实用、好奇心驱动的陈硕风格内容。
+- `li-auto-infographic-suite`：理想车主信息图套图生产、QA、归档和发布工作流。
+- `li-auto-minimal-infographic`：理想车主极简分享码信息图工作流。
+- `li-info`：理想信息图短命令入口。
+
+### 设计、工程与执行
+
+- `frontend-design`：前端产品设计、实现和评审的质检层。
+- `open-design`：连接本地 Open Design 项目，生成设计产物。
+- `ralph-runner`：把 Markdown 需求转成 Ralph PRD 并执行安全 dry-run。
+- `clean-code`：围绕需求、业务流程、文档同步和验证结果做工程收尾。
+
+## 仓库结构
+
+```text
+chenshuo-skills/
+  README.md
+  LICENSE
+  assets/
+    chenshuo-skills-cover.png
+  docs/
+    goal-mode.md
+    repository-plan.md
+    skill-inventory.md
+  auto-cutting/
+  auto-cutting-prd/
+  auto-cutting-ralph/
+  auto-render-video/
+  clean-code/
+  frontend-design/
+  happy-writer/
+  li-auto-infographic-suite/
+  li-auto-minimal-infographic/
+  li-info/
+  open-design/
+  ralph-runner/
+```
+
+每个 skill 都尽量保持自包含：
+
+- `SKILL.md`：核心触发说明和工作流。
+- `agents/openai.yaml`：UI 展示文案和默认 prompt。
+- `references/`：需要时再读取的详细规则。
+- `assets/`：模板或生成所需资源。
+- `scripts/`：可重复执行的确定性脚本。
+
+## 维护原则
+
+1. 只保留真实项目里有用的工作流。
+2. 每个 skill 必须有明确 goal、输入、输出和验证方式。
+3. `SKILL.md` 保持短而可触发，复杂规则放到 `references/`。
+4. 不写死个人本机路径、账号信息、私有资料或不可公开链接。
+5. 新增 skill 前先问：它解决的是一个稳定目标，还是一次性提示词？
 
 ## 发布信息
 
@@ -125,10 +126,8 @@ chenshuo-skills/
 
 首版已完成：
 
-1. 迁移 12 个核心/入口/基础设施 skill。
+1. 发布 12 个核心/入口/基础设施 skill。
 2. 添加仓库封面图。
 3. 补齐 `LICENSE` 和 `.gitignore`。
 4. 校验所有 `SKILL.md` frontmatter。
 5. 清理本机绝对路径和敏感信息。
-
-后续建议用一个新会话测试安装 URL 和触发语。
