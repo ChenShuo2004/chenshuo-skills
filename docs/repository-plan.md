@@ -4,7 +4,7 @@
 
 目标是把当前本机已经沉淀的个人 skills，整理成一个可维护、可安装、可分享的 `ChenShuo Skills` GitHub 仓库。
 
-这次先做文档和规划，不迁移源码、不创建远程仓库、不推送。
+首版已完成源码迁移、仓库配图、远程仓库创建和推送。
 
 ## 参考设计
 
@@ -103,7 +103,7 @@ chenshuo-skills/
 
 ### P1：待确认后迁移
 
-暂无。`frontend-design` 已优化成前端产品设计与实现质检 skill，建议进入首版。
+暂无。`frontend-design`、`clean-code`、`happy-writer` 已进入首版。
 
 ### 暂不迁移
 
@@ -136,14 +136,13 @@ chenshuo-skills/
 
 建议流程：
 
-1. 在本地当前目录初始化仓库。
-2. 复制 P0 skill 目录。
-3. 做一次内容审查：隐私、路径、许可证、触发语、README 描述。
-4. 本地提交：`docs: plan ChenShuo skills repository`，然后 `feat: add initial skills`。
-5. 创建远程仓库 `ChenShuo2004/chenshuo-skills`。
-6. 推送到 `main`。
-7. 在 GitHub README 检查安装链接是否可点。
-8. 用一个新 Codex/Claude 会话测试安装 URL 和触发语。
+1. 已在本地当前目录初始化仓库。
+2. 已复制 P0 skill 目录。
+3. 已做内容审查：隐私、路径、许可证、触发语、README 描述。
+4. 已创建远程仓库 `ChenShuo2004/chenshuo-skills`。
+5. 已推送到 `main`。
+6. 已通过 GitHub CLI 检查 README 可读取。
+7. 待做：用一个新 Codex/Claude 会话测试安装 URL 和触发语。
 
 ## 风险和待确认
 

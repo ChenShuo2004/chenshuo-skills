@@ -6,7 +6,7 @@
 
 这个仓库的目标不是把所有提示词都堆在一起，而是把已经在真实项目里跑通过、能复用、能交付结果的工作流整理成可安装、可维护的 skill。
 
-当前状态：首版 skill 已整理，准备发布到 GitHub。
+当前状态：首版 skill 已发布到 GitHub。
 
 设计参考：[KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills)。参考点主要是：根目录直接放可安装 skill、README 先讲清楚每个 skill 解决什么问题、安装方式足够简单、每个 skill 保持自包含。
 
@@ -119,10 +119,16 @@ chenshuo-skills/
 5. 第三方或上游 skill 不混入原创清单，除非明确保留来源、许可证和修改说明。
 6. 首版先保证安装、触发、验证路径通顺，不做过度包装。
 
-## 下一步
+## 发布信息
 
-1. 确认仓库名：推荐 `chenshuo-skills`。
-2. 确认仓库可见性：公开更利于分享，私有更适合未整理完的工作流。
-3. 逐个检查 `SKILL.md` frontmatter、`agents/openai.yaml`、资源引用和触发语。
-4. 创建 GitHub 仓库 `ChenShuo2004/chenshuo-skills` 并推送。
-5. 用一个新会话测试安装 URL 和触发语。
+仓库地址：[ChenShuo2004/chenshuo-skills](https://github.com/ChenShuo2004/chenshuo-skills)
+
+首版已完成：
+
+1. 迁移 12 个核心/入口/基础设施 skill。
+2. 添加仓库封面图。
+3. 补齐 `LICENSE` 和 `.gitignore`。
+4. 校验所有 `SKILL.md` frontmatter。
+5. 清理本机绝对路径和敏感信息。
+
+后续建议用一个新会话测试安装 URL 和触发语。
