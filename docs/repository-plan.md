@@ -86,7 +86,7 @@ ChenShuo Skills 是陈硕在真实项目里沉淀的 AI Agent 工作流集合。
 - 是否按描述触发。
 - `references/` 是否能被按需读取。
 - `agents/openai.yaml` 是否展示正常。
-- `$goal-mode` 是否能在没有 UI 目标设置入口时生成 Goal Card。
+- `$goal-mode` 是否能在没有平台 Goal UI 时生成任务卡。
 
 ### P1：真实任务回归
 

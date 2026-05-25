@@ -1,20 +1,20 @@
 ---
 name: goal-mode
 description: |
-  Use when the user wants to set, clarify, or route a goal before choosing another ChenShuo skill. Trigger for "$goal-mode", "goal mode", "设置目标", "无法设置目标", "帮我选 skill", "不知道用哪个 skill", "先规划目标", or any request where the user's goal, inputs, expected output, constraints, validation, or best skill route is unclear. This skill turns vague intent into a Goal Card and recommends the next skill.
+  Use when the user wants to clarify intent, fill a task card, or route work before choosing another ChenShuo skill. Trigger for "$goal-mode", "goal mode", "填写任务卡", "帮我选 skill", "不知道用哪个 skill", "先规划", or any request where the user's goal, inputs, expected output, constraints, validation, or best skill route is unclear. This skill turns vague intent into a Goal Card and recommends the next skill.
 ---
 
 # Goal Mode
 
 ## Purpose
 
-Use this skill as the goal-setting entrypoint for ChenShuo Skills.
+Use this skill as the task-card and routing entrypoint for ChenShuo Skills.
 
-Some tools do not have a real "set goal" UI. That is fine. Goal Mode works inside the conversation: ask the right questions, fill a Goal Card, then route to the best skill.
+Some tools do not have a usable platform Goal UI. That is fine. Goal Mode works inside the conversation: ask the right questions, fill a Goal Card, then route to the best skill.
 
 ## When To Use
 
-- The user says they cannot set a goal in Goal Mode.
+- The user cannot use the platform Goal UI and needs a conversation-based fallback.
 - The user wants to start from an outcome, not from a specific skill name.
 - The user is unsure whether to use `happy-writer`, `clean-code`, `auto-render-video`, `li-info`, or another skill.
 - The request is vague and needs goal, input, output, constraints, or validation clarified first.

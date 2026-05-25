@@ -12,7 +12,7 @@ ChenShuo Skills 是我在真实项目里沉淀的一组 AI Agent 工作流。
 
 Goal Mode 的用法很简单：先说目标，再选 skill。
 
-如果你的工具界面显示“无法设置目标”或没有 Goal Mode 开关，不需要找 UI 设置。直接安装并调用 `$goal-mode`，它会在对话里帮你补齐目标卡。
+如果你的工具界面没有可用的 Goal UI，不需要点任何平台按钮。直接安装并调用 `$goal-mode`，它会在对话里帮你填写任务卡。
 
 不要先问“我该用哪个提示词”，而是先问：
 
@@ -27,7 +27,7 @@ Goal Mode 的用法很简单：先说目标，再选 skill。
 
 | Goal | 使用入口 | 适合场景 | 产出 |
 | --- | --- | --- | --- |
-| 不知道该用哪个 skill | `$goal-mode` | 目标还不清楚、工具无法设置目标、需要先规划 | Goal Card、推荐 skill、下一步 prompt |
+| 不知道该用哪个 skill | `$goal-mode` | 意图还不清楚、需要先规划、需要路由到合适 skill | 任务卡、推荐 skill、下一步 prompt |
 | 把自动剪辑想法变成可执行方案 | `$auto-cutting-prd` | 有视频想法，但还没有需求文档、剪辑方案或 Ralph PRD | Markdown 需求、剪辑计划、PRD 草案 |
 | 直接剪辑并导出视频 | `$auto-render-video` | 已有素材、脚本、字幕或 render-plan，希望直接生成 MP4 | 成片、渲染计划、验证报告 |
 | 跑完整自动剪辑工程闭环 | `$auto-cutting-ralph` | 想把自动剪辑需求交给 Ralph/Codex dry-run 执行 | Ralph PRD、dry-run 结果、日志路径 |
@@ -58,7 +58,7 @@ Goal Mode 的用法很简单：先说目标，再选 skill。
 帮我安装这个 skill：https://github.com/ChenShuo2004/chenshuo-skills/tree/main/clean-code
 ```
 
-如果你只是想先设置目标：
+如果你只是想先填写任务卡：
 
 ```text
 帮我安装这个 skill：https://github.com/ChenShuo2004/chenshuo-skills/tree/main/goal-mode
