@@ -1,0 +1,7 @@
+interface:
+  display_name: "Frontend Design"
+  short_description: "Design practical, polished frontend product UI."
+  default_prompt: "Use $frontend-design to turn this frontend request into a polished, usable, verified product UI."
+
+policy:
+  allow_implicit_invocation: true

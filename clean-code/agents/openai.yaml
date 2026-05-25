@@ -1,0 +1,7 @@
+interface:
+  display_name: "Clean Code"
+  short_description: "Clean code, docs, and handoff with verification."
+  default_prompt: "Use $clean-code to review this change, clean up the implementation, and verify the result."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ralph Runner"
+  short_description: "Run visible Ralph/Codex workflows from Markdown PRDs."
+  default_prompt: "Use $ralph-runner to make a Ralph PRD, run a dry build, and show each iteration output."
