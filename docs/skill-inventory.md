@@ -12,6 +12,7 @@
 | `auto-cutting-prd` | 自动剪辑 | 把自动剪辑想法整理成需求文档、剪辑方案或 Ralph PRD | `agents/openai.yaml` |
 | `auto-cutting-ralph` | 自动剪辑 | 把自动剪辑需求交给 Ralph dry-run 执行 | `agents/openai.yaml` |
 | `auto-render-video` | 自动剪辑 | 根据素材和 render-plan 直接导出 MP4 | `agents/openai.yaml` |
+| `goal-mode` | 目标路由 | 澄清目标并推荐下一步 skill | `agents/openai.yaml` |
 | `happy-writer` | 内容创作 | 把真实项目素材写成温暖、实用、好奇心驱动内容 | `references/style-guide.md` |
 | `li-auto-infographic-suite` | 信息图 | 生产理想车主信息图套图并做 QA/归档 | `references/current-workflow.md` |
 | `li-auto-minimal-infographic` | 信息图 | 生成极简分享码信息图 | `references/minimal-style-spec.md` |
@@ -58,6 +59,7 @@
 
 推荐入口：
 
+- 目标不清楚：`$goal-mode`
 - 前端体验：`$frontend-design`
 - 设计产物：`$open-design`
 - PRD dry-run：`$ralph-runner`

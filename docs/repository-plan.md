@@ -6,7 +6,7 @@ ChenShuo Skills 已发布为公开 GitHub 仓库：
 
 [ChenShuo2004/chenshuo-skills](https://github.com/ChenShuo2004/chenshuo-skills)
 
-首版包含 12 个 skill，按 Goal Mode 组织：
+首版包含 13 个 skill，按 Goal Mode 组织：
 
 - 自动剪辑
 - 内容写作
@@ -15,6 +15,7 @@ ChenShuo Skills 已发布为公开 GitHub 仓库：
 - Open Design 设计产物
 - Ralph PRD 执行
 - 代码质量和交付收尾
+- 目标澄清和 skill 路由
 
 ## 仓库定位
 
@@ -50,12 +51,13 @@ ChenShuo Skills 是陈硕在真实项目里沉淀的 AI Agent 工作流集合。
 
 ### 设计、工程与执行组
 
+- `goal-mode`
 - `frontend-design`
 - `open-design`
 - `ralph-runner`
 - `clean-code`
 
-目标：支持前端体验设计、设计产物生成、PRD 执行和工程收尾。
+目标：支持目标澄清、前端体验设计、设计产物生成、PRD 执行和工程收尾。
 
 ## 发布标准
 
@@ -84,6 +86,7 @@ ChenShuo Skills 是陈硕在真实项目里沉淀的 AI Agent 工作流集合。
 - 是否按描述触发。
 - `references/` 是否能被按需读取。
 - `agents/openai.yaml` 是否展示正常。
+- `$goal-mode` 是否能在没有 UI 目标设置入口时生成 Goal Card。
 
 ### P1：真实任务回归
 

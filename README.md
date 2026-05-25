@@ -6,11 +6,13 @@ ChenShuo Skills 是我在真实项目里沉淀的一组 AI Agent 工作流。
 
 这个仓库不追求把提示词堆满，而是把能反复使用、能交付结果、能验证质量的工作流整理成可安装的 skill。每个 skill 都围绕一个明确目标设计：先理解业务，再执行动作，最后给出可检查的结果。
 
-当前状态：首版 12 个 skill 已发布。
+当前状态：首版 13 个 skill 已发布。
 
 ## Goal Mode
 
 Goal Mode 的用法很简单：先说目标，再选 skill。
+
+如果你的工具界面显示“无法设置目标”或没有 Goal Mode 开关，不需要找 UI 设置。直接安装并调用 `$goal-mode`，它会在对话里帮你补齐目标卡。
 
 不要先问“我该用哪个提示词”，而是先问：
 
@@ -25,6 +27,7 @@ Goal Mode 的用法很简单：先说目标，再选 skill。
 
 | Goal | 使用入口 | 适合场景 | 产出 |
 | --- | --- | --- | --- |
+| 不知道该用哪个 skill | `$goal-mode` | 目标还不清楚、工具无法设置目标、需要先规划 | Goal Card、推荐 skill、下一步 prompt |
 | 把自动剪辑想法变成可执行方案 | `$auto-cutting-prd` | 有视频想法，但还没有需求文档、剪辑方案或 Ralph PRD | Markdown 需求、剪辑计划、PRD 草案 |
 | 直接剪辑并导出视频 | `$auto-render-video` | 已有素材、脚本、字幕或 render-plan，希望直接生成 MP4 | 成片、渲染计划、验证报告 |
 | 跑完整自动剪辑工程闭环 | `$auto-cutting-ralph` | 想把自动剪辑需求交给 Ralph/Codex dry-run 执行 | Ralph PRD、dry-run 结果、日志路径 |
@@ -55,6 +58,12 @@ Goal Mode 的用法很简单：先说目标，再选 skill。
 帮我安装这个 skill：https://github.com/ChenShuo2004/chenshuo-skills/tree/main/clean-code
 ```
 
+如果你只是想先设置目标：
+
+```text
+帮我安装这个 skill：https://github.com/ChenShuo2004/chenshuo-skills/tree/main/goal-mode
+```
+
 ## Skill Map
 
 ### 自动剪辑
@@ -73,6 +82,7 @@ Goal Mode 的用法很简单：先说目标，再选 skill。
 
 ### 设计、工程与执行
 
+- `goal-mode`：目标澄清和 skill 路由入口。
 - `frontend-design`：前端产品设计、实现和评审的质检层。
 - `open-design`：连接本地 Open Design 项目，生成设计产物。
 - `ralph-runner`：把 Markdown 需求转成 Ralph PRD 并执行安全 dry-run。
@@ -96,6 +106,7 @@ chenshuo-skills/
   auto-render-video/
   clean-code/
   frontend-design/
+  goal-mode/
   happy-writer/
   li-auto-infographic-suite/
   li-auto-minimal-infographic/
@@ -126,7 +137,7 @@ chenshuo-skills/
 
 首版已完成：
 
-1. 发布 12 个核心/入口/基础设施 skill。
+1. 发布 13 个核心/入口/基础设施 skill。
 2. 添加仓库封面图。
 3. 补齐 `LICENSE` 和 `.gitignore`。
 4. 校验所有 `SKILL.md` frontmatter。

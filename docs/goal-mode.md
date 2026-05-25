@@ -2,6 +2,20 @@
 
 Goal Mode 是这个仓库的使用方式：先定义目标，再选择 skill。
 
+如果工具界面显示“无法设置目标”或没有 Goal Mode 开关，不代表不能使用 Goal Mode。这个仓库提供了可安装的 `$goal-mode` skill，用对话来完成目标设置。
+
+安装：
+
+```text
+帮我安装这个 skill：https://github.com/ChenShuo2004/chenshuo-skills/tree/main/goal-mode
+```
+
+使用：
+
+```text
+使用 $goal-mode，帮我设置目标并推荐该用哪个 skill。
+```
+
 它避免把 AI 协作变成“试提示词”。每次开始前，先把任务压成四个问题：
 
 1. 我要达成什么结果？
@@ -39,6 +53,7 @@ Goal：把一批素材剪成 60 秒横屏视频
 
 | 目标类型 | 优先 skill | 备选 skill |
 | --- | --- | --- |
+| 目标不清楚 / 无法设置目标 | `$goal-mode` | 无 |
 | 自动剪辑需求整理 | `$auto-cutting-prd` | `$auto-cutting` |
 | 自动剪辑直接成片 | `$auto-render-video` | `$auto-cutting` |
 | 自动剪辑工程执行 | `$auto-cutting-ralph` | `$ralph-runner` |
