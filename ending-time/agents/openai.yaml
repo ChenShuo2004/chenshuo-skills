@@ -1,0 +1,7 @@
+interface:
+  display_name: "Ending Time"
+  short_description: "Finish, commit, push, and deploy verified work."
+  default_prompt: "Use $ending-time to finish this page or feature, verify it, push it to GitHub, and deploy it on Vercel."
+
+policy:
+  allow_implicit_invocation: true

@@ -6,7 +6,7 @@ ChenShuo Skills 是我在真实项目里沉淀的一组 AI Agent 工作流。
 
 这个仓库不追求把提示词堆满，而是把能反复使用、能交付结果、能验证质量的工作流整理成可安装的 skill。每个 skill 都围绕一个明确目标设计：先理解业务，再执行动作，最后给出可检查的结果。
 
-当前状态：首版 13 个 skill 已发布。
+当前状态：首版 14 个 skill 已发布。
 
 ## Goal Mode
 
@@ -37,6 +37,7 @@ Goal Mode 的用法很简单：先说目标，再选 skill。
 | 写文章或改稿 | `$happy-writer` | 项目复盘、工具体验、公众号长文、内容改写 | 陈硕风格文章、提纲、角度建议 |
 | 清理代码和交付状态 | `$clean-code` | 代码重构、review、文档同步、交付收尾 | 修复建议、代码整理、验证结果 |
 | 设计或评审前端体验 | `$frontend-design` | Web app、后台、仪表盘、工具界面、落地页 | 前端实现建议、UI 约束、验证清单 |
+| 收尾、提交和部署 | `$ending-time` | 页面/功能已经要交付，需要验证、提交 GitHub 并部署 Vercel | Git 提交、GitHub 推送、Vercel 部署链接、验证报告 |
 | 使用 Open Design 做设计产物 | `$open-design` | HTML 原型、Dashboard、移动端、幻灯片、设计系统 | Open Design 产物路径与执行步骤 |
 | 把 Markdown 需求跑成 Ralph PRD | `$ralph-runner` | 已有需求文档，想跑安全 dry-run 构建 | PRD JSON、overview、dry-run 输出 |
 
@@ -83,6 +84,7 @@ Goal Mode 的用法很简单：先说目标，再选 skill。
 ### 设计、工程与执行
 
 - `goal-mode`：目标澄清和 skill 路由入口。
+- `ending-time`：实现收尾、验证、提交 GitHub 和 Vercel 部署工作流。
 - `frontend-design`：前端产品设计、实现和评审的质检层。
 - `open-design`：连接本地 Open Design 项目，生成设计产物。
 - `ralph-runner`：把 Markdown 需求转成 Ralph PRD 并执行安全 dry-run。
@@ -105,6 +107,7 @@ chenshuo-skills/
   auto-cutting-ralph/
   auto-render-video/
   clean-code/
+  ending-time/
   frontend-design/
   goal-mode/
   happy-writer/

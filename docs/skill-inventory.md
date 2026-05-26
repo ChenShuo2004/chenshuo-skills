@@ -17,6 +17,7 @@
 | `li-auto-infographic-suite` | 信息图 | 生产理想车主信息图套图并做 QA/归档 | `references/current-workflow.md` |
 | `li-auto-minimal-infographic` | 信息图 | 生成极简分享码信息图 | `references/minimal-style-spec.md` |
 | `li-info` | 信息图 | 快速触发理想信息图工作流 | `agents/openai.yaml` |
+| `ending-time` | 工程发布 | 完成实现收尾、验证、GitHub 推送和 Vercel 部署 | `agents/openai.yaml` |
 | `frontend-design` | 设计 | 指导前端产品设计、实现和评审 | `agents/openai.yaml` |
 | `open-design` | 设计 | 使用本地 Open Design 项目生成设计产物 | `references/open-design-map.md` |
 | `ralph-runner` | 执行 | 把 Markdown 需求转成 Ralph PRD 并安全 dry-run | `references/` |
@@ -60,6 +61,7 @@
 推荐入口：
 
 - 目标不清楚：`$goal-mode`
+- 收尾发布：`$ending-time`
 - 前端体验：`$frontend-design`
 - 设计产物：`$open-design`
 - PRD dry-run：`$ralph-runner`
